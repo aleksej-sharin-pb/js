@@ -10,11 +10,17 @@ result = false;
 }
 */
 //=====================================================
-var a = 1, b = 1;
-var result = (a + b < 4) ? result = true : result = false;
+// исправлено, согласно замечания
+const a = 2;
+const b = 1;
+let result = null;
+result = a + b < 4 ? true : false;
 console.log('1) a+b=' + (a+b) + ', result:' + result);
+//  1) a+b=3, result:true
 //=========================================================
-a = 1; b = 3;
-var result = (a + b < 4) ? result = true : result = false;
+a = 1;
+b = 3;
+result = a + b < 4 ? true : false;
 console.log('2) a+b=' + (a+b) + ', result:' + result);
+//  2) a+b=4, result:false
 //=========================================================
