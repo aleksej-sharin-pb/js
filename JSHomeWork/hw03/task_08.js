@@ -15,20 +15,43 @@ f(1,2,3) // Error: parameter type should be an array
 f('Content') // Error: parameter type should be an array
 f([]) // Error: parameter can't be an empty
 */
-//=====================================================
-function f(a) {
-  if (typeof a === "object") {
-    if (a.length !== 0) {
-      console.log(a.length);
-    } else {
-      throw new Error("parameter can't be an empty"); //выбрасываем ошибку
-    }
-  } else {
-    throw new Error("parameter type should be an array"); //выбрасываем ошибку
-  }
+//==========================================================================
+// 1) Вариант с переменной для условия выхода из рекурсии, пример есть в лекции
+//==========================================================================
+var i = 0; 
+
+function f(arr) {
+  if (typeof arr !== "object")    throw new Error("parameter type should be an array"); //выбрасываем ошибку
+  if (arr.length === 0)           throw new Error("parameter can't be an empty");       //выбрасываем ошибку
+  //console.log(arr.length);
+  console.log(arr[i]);
+  i++;
+  if (i < arr.length) f(arr);
 }
-//=====================================================
+//=========================================================================
 f([1, 2, 3]);
-f([]); //Error: parameter can't be an empty
+// 1
+// 2
+// 3
+f([]);      // Error: parameter can't be an empty
 f(1, 2, 3); // Error: parameter type should be an array
+//==========================================================================
+// 2) Вариант без переменной, через удаление выведенного елемента
+//==========================================================================
+function f(arr) {
+  if (typeof arr !== "object")    throw new Error("parameter type should be an array"); //выбрасываем ошибку
+  if (arr.length === 0)           throw new Error("parameter can't be an empty");       //выбрасываем ошибку
+  //console.log(arr.length);
+  if (1 < arr.length){
+  console.log(arr[0]);
+  arr.shift();
+  f(arr);
+  } else   console.log(arr[0]);
+}
+
+
+f([5, 6, 7]);
+// 5
+// 6
+// 7
 //=====================================================

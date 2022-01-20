@@ -9,15 +9,13 @@ f('Content'); // Error: parameter type is not a Number
 //Функция расчета куба числа
 //=====================================================
 function f(a) {
-  if (typeof a === "number") {
-    let res = a;
-    for (let i = 1; i < 3; i++) {
-      res *= a;
-    }
-    console.log(res);
-  } else {
-    throw new Error("parameter type is not a Number"); //выбрасываем ошибку
+  if (typeof a !== "number") throw new Error("parameter type is not a Number"); //выбрасываем ошибку
+
+  let res = a;
+  for (let i = 1; i < 3; i++) {
+    res *= a;
   }
+  console.log(res);
 }
 //=====================================================
 // Вызов функции

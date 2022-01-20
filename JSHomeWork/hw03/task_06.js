@@ -11,17 +11,13 @@ isEven(4); // true
 isEven('Content'); // Error: parameter type is not a Number
 */
 //=====================================================
-function isEven(a){
-    if (typeof a === "number") {
-        let res = (a % 2 == 0) ? true : false;
-        // return res;
-        console.log(res);
-      } else {
-        throw new Error("parameter type is not a Number"); //выбрасываем ошибку
-      }
+function isEven(a) {
+  if (typeof a !== "number") throw new Error("parameter type is not a Number"); //выбрасываем ошибку
+  //return     a % 2 == 0 ? true : false;
+  console.log( a % 2 == 0 ? true : false);
 }
 //=====================================================
 isEven(3);         // false
 isEven(4);         // true
-isEven('Content'); // Error: parameter type is not a Number
+isEven("Content"); // Error: parameter type is not a Number
 //=====================================================
