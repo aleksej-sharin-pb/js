@@ -44,7 +44,8 @@ function f(arr) {
   //console.log(arr.length);
   if (1 < arr.length){
   console.log(arr[0]);
-  arr.shift();
+  //arr.shift();
+  arr.splice(0, 1);
   f(arr);
   } else   console.log(arr[0]);
 }
